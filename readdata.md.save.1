@@ -1,0 +1,50 @@
+#!/usr/bin/python
+
+infile='GDS3420.txt'
+
+fh = open(infile)
+
+line
+header = fh.readline().strip()
+
+colnames=()
+
+index=0
+
+for title in header.split('\t'):
+	colnames[title]=index
+	print '%s\t%s'%
+	index=index+1
+
+#open out output files, one per table.
+genefile=open('genes.txt', 'w')
+expressionfile=open('expression.txt'), 'w')
+probefile=open('probe.txt','w')
+
+genefields=['GeneID', 'Gene symbol', 'Genetitle']
+samples=colnames[2:colnames['Gene ID']]
+probefields=['ID_REF', 'Gene ID']
+
+
+def buildrow(row, fields):
+	newrow=()
+	for f in fields:
+		newrow.append(row[colname[f]])
+	return"\t".join(newrow)+"\n"
+
+def build_expression(row, sample):
+	exprrows=[]
+	for s in samples:
+		newrow.append(row[colname('ID_REF']])
+		newrow.append(rowcolname[s]])
+		exprrows.append("\t".join(mewrow))
+	return "\n".join(exprrows)+"\n"
+
+
+while line in fh.readlines():
+	if line
+	row=line.strip().split('\t')
+	genefile.write(buildrow(row, genefields))
+	genefile.write('\t'.join(row[colname['Gene ID']],row[coluname['Gene title']],row[colname['Gene symbol']])+"\n")
+
+
